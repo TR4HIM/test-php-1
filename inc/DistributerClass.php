@@ -106,6 +106,3 @@ class DistributerClass {
 		echo json_encode($this->amountPerDayList);
 	}
 }
-
-$distrubed = new DistributerClass('2019-04-29','2019-05-13',40,5);
-$distrubed->getJson();

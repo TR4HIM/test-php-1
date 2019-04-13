@@ -9,7 +9,6 @@ var distributerApp = {
     },
     // Initialize 
     init: function () {
-         console.log('here');
          distributerApp.initDatePicker();
          distributerApp.events();
     },
@@ -46,6 +45,5 @@ var distributerApp = {
 }
 
 $(document).ready(function () {
-    console.log("ready!");
     distributerApp.init();
 });
