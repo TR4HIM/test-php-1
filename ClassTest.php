@@ -17,7 +17,7 @@ class totalSpliter {
 		$this->endDate		= $end_date;
 
 		$this->amountPerDayList 	= $this->getRandomNumber($this->startDate,$this->endDate,$this->totalAmount,$this->baseLine);
-		var_dump($this->amountPerDayList );
+		//var_dump($this->amountPerDayList );
 	}
 
 	public function getParams($start_date , $end_date , $total , $baseline){
@@ -101,6 +101,11 @@ class totalSpliter {
 
 		return $listDates;
 	}
+
+	public function getJson(){
+		echo json_encode($this->amountPerDayList);
+	}
 }
 
-$distrubed = new totalSpliter('2019-04-29','2019-05-1',40,5);
+$distrubed = new totalSpliter('2019-04-29','2019-05-13',40,5);
+$distrubed->getJson();
