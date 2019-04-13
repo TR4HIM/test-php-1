@@ -1,7 +1,7 @@
 <?php
 
 
-class totalSpliter {
+class DistributerClass {
 
 	private $totalAmount ;
 	private $baseLine ;
@@ -107,5 +107,5 @@ class totalSpliter {
 	}
 }
 
-$distrubed = new totalSpliter('2019-04-29','2019-05-13',40,5);
+$distrubed = new DistributerClass('2019-04-29','2019-05-13',40,5);
 $distrubed->getJson();
