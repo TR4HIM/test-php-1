@@ -17,16 +17,14 @@ var distributerApp = {
         distributerApp.dom.btnCalculate.on('click',function(e){
             e.preventDefault();
 
-            var form = $('#app-distributer-form');
-            var url = form.attr('action');
+            var form    = $('#app-distributer-form');
+            var url     = form.attr('action');
 
             $.ajax({
                 type    : "POST",
                 url     : url,
-                data    : form.serialize(), // serializes the form's elements.
+                data    : form.serialize(), 
                 success: function (data) {
-                   // console.log(data);
-                    
                     distributerApp.getFormData(data);
                 }
             });
@@ -55,18 +53,13 @@ var distributerApp = {
         return;
     },
     resultTemplate : function(data){
-        // $('#app-data-result')
         var htmlTpl = '';
-        var _tmpTotal = 0;
-        console.log(data);
-
         $.each(data, function (i, item) {
             htmlTpl     += '<tr>';
             htmlTpl     += '<th>' + item.date + '</th><td>' + item.amount + '</td>';
             htmlTpl     += '</tr>';
             _tmpTotal   += item.amount;
         })
-        console.log("dd",_tmpTotal);
         return htmlTpl;
     }
 }

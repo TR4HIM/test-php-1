@@ -28,6 +28,5 @@ if (strtotime($postStartDate) > strtotime($postEndDate)) {
     die();
 }
 
-//echo json_encode(['success' => 'It s not a real date']);
 $distrubed = new DistributerClass($postStartDate,$postEndDate,$postTotal,$postBaseLine);
 $distrubed->getJson();

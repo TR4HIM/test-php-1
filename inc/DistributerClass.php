@@ -16,7 +16,6 @@ class DistributerClass {
 		$this->endDate		= $end_date;
 
 		$this->amountPerDayList 	= $this->getRandomNumber($this->startDate,$this->endDate,$this->totalAmount,$this->baseLine);
-		//var_dump($this->amountPerDayList );
 	}
 
 	public function isWeekend($date) {
@@ -48,11 +47,7 @@ class DistributerClass {
 		$counter 			= 1;
 
 		$minValue 			= ($weekDays > $counter) ? round($baseline  / ($weekDays - $counter) , 2) : 1;
-/* 		echo $totalMax . ' total max 1%  <br>';
-		echo $total . ' Total <br>';
-		echo $totalMin . ' total min 1% <br>';
-		echo $weekDays . ' weekdays <br>';
-		echo $minValue . ' Min value <br>'; */
+
 		while (strtotime($start_date) <= strtotime($end_date)) {	
             if(!$this->isWeekend($start_date)){
 
@@ -97,9 +92,5 @@ class DistributerClass {
 
 	public function getJson(){
 		echo json_encode(['success' => $this->amountPerDayList]);
-		// var_dump($this->amountPerDayList);
 	}
 }
-// echo "<pre>";
-// $distrubed = new DistributerClass('2019-04-15','2019-04-17',124.523,21.2);
-// $distrubed->getJson();
