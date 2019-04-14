@@ -16,6 +16,9 @@ var distributerApp = {
     events: function () {
         distributerApp.dom.btnCalculate.on('click',function(e){
             e.preventDefault();
+            var _this = $(this);
+
+            _this.text('Loading ...').attr('disabled','disabled');
 
             var form    = $('#app-distributer-form');
             var url     = form.attr('action');
@@ -26,6 +29,7 @@ var distributerApp = {
                 data    : form.serialize(), 
                 success: function (data) {
                     distributerApp.getFormData(data);
+                    _this.text('Calculate').removeAttr('disabled');
                 }
             });
         });
@@ -58,7 +62,6 @@ var distributerApp = {
             htmlTpl     += '<tr>';
             htmlTpl     += '<th>' + item.date + '</th><td>' + item.amount + '</td>';
             htmlTpl     += '</tr>';
-            _tmpTotal   += item.amount;
         })
         return htmlTpl;
     }
