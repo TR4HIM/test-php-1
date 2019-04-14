@@ -19,16 +19,6 @@ class DistributerClass {
 		//var_dump($this->amountPerDayList );
 	}
 
-	public function getParams($start_date , $end_date , $total , $baseline){
-		$this->totalAmount 	= $total;
-		$this->baseLine 	= $baseline;
-		$this->startDate	= $start_date;
-		$this->endDate		= $end_date;
-
-		return $this->getRandomNumber($this->startDate,$this->endDate,$this->totalAmount,$this->baseLine);
-	}
-
-	
 	public function isWeekend($date) {
 	    return (date('N', strtotime($date)) >= 6);
 	}
@@ -58,7 +48,11 @@ class DistributerClass {
 		$counter 			= 1;
 
 		$minValue 			= ($weekDays > $counter) ? round($baseline  / ($weekDays - $counter) , 2) : 1;
-
+/* 		echo $totalMax . ' total max 1%  <br>';
+		echo $total . ' Total <br>';
+		echo $totalMin . ' total min 1% <br>';
+		echo $weekDays . ' weekdays <br>';
+		echo $minValue . ' Min value <br>'; */
 		while (strtotime($start_date) <= strtotime($end_date)) {	
             if(!$this->isWeekend($start_date)){
 
@@ -72,7 +66,7 @@ class DistributerClass {
 
 					$listDates[] 				=  ['date' => $start_date , 'amount' => $randomNumber];
 
-					$total 	   			-= $randomNumber;
+					$total 	   				   -= $randomNumber;
 
 					$counter++;
 
@@ -82,7 +76,7 @@ class DistributerClass {
 
 					$AboveOnePer 		= $totalMax - $arraySum;
 
-					$BellowOnePer 		= $totalMin - $arraySum;
+					$BellowOnePer 		= ( ($totalMin - $arraySum) > $minValue) ? ($totalMin - $arraySum) : $minValue;
 
 					$lastNumber 		= mt_rand($BellowOnePer  * 100, $AboveOnePer * 100) / 100;
 
@@ -103,5 +97,9 @@ class DistributerClass {
 
 	public function getJson(){
 		echo json_encode(['success' => $this->amountPerDayList]);
+		// var_dump($this->amountPerDayList);
 	}
 }
+// echo "<pre>";
+// $distrubed = new DistributerClass('2019-04-15','2019-04-17',124.523,21.2);
+// $distrubed->getJson();

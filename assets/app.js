@@ -46,6 +46,7 @@ var distributerApp = {
     getFormData : function(data){
         if (data.hasOwnProperty('error')) {
             $("#app-error-container").empty().text(data['error']).show();
+            $('#app-data-result').find('tbody').empty().append('<tr> <td> No Results Yet </td> </tr>');
         }else{
             $("#app-error-container").empty().hide();
             var tableTemplate = distributerApp.resultTemplate(data.success);
@@ -56,15 +57,16 @@ var distributerApp = {
     resultTemplate : function(data){
         // $('#app-data-result')
         var htmlTpl = '';
-
+        var _tmpTotal = 0;
         console.log(data);
 
         $.each(data, function (i, item) {
             htmlTpl     += '<tr>';
             htmlTpl     += '<th>' + item.date + '</th><td>' + item.amount + '</td>';
             htmlTpl     += '</tr>';
+            _tmpTotal   += item.amount;
         })
-        
+        console.log("dd",_tmpTotal);
         return htmlTpl;
     }
 }
