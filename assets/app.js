@@ -42,17 +42,28 @@ var distributerApp = {
             });
         });
     },
+
     getFormData : function(data){
         if (data.hasOwnProperty('error')) {
-            console.log(data['error']);
             $("#app-error-container").empty().text(data['error']).show();
-            return;
         }else{
             $("#app-error-container").empty().hide();
-
-            console.log("Success");
-            console.log(data);
+            distributerApp.resultTemplate(data.success);
         }
+        return;
+    },
+    resultTemplate : function(data){
+        // $('#app-data-result')
+        var htmlTpl     = '<tr>';
+
+        console.log(data);
+
+        $.each(data, function (i, item) {
+            console.log(item);
+        })
+
+        htmlTpl    += '<tr> <th>1</th> <td>Mark</td> </tr>';
+        htmlTpl    += '</tr>';
     }
 }
 

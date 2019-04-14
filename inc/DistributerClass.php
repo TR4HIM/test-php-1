@@ -70,7 +70,7 @@ class DistributerClass {
 
 					$list[$counter] 			= $randomNumber;
 
-					$listDates[] 				=  [$start_date => $randomNumber];
+					$listDates[] 				=  ['date' => $start_date , 'amount' => $randomNumber];
 
 					$total 	   			-= $randomNumber;
 
@@ -88,7 +88,7 @@ class DistributerClass {
 
 					$list[$weekDays] 	= $lastNumber;
 
-					$listDates[] 		=  [$start_date => $lastNumber];
+					$listDates[] 		= ['date' => $start_date , 'amount' => $lastNumber];
 				}
 
             }else{
