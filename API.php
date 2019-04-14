@@ -18,12 +18,17 @@ if(!is_numeric($postTotal) || !is_numeric($postBaseLine)) {
     die();
 }
 
+if( $postTotal < $postBaseLine ) {
+    echo json_encode(['error' => 'Total should be more than base line']);
+    die();
+}
+
 if ((DateTime::createFromFormat('Y-m-d', $postStartDate) === false) || (DateTime::createFromFormat('Y-m-d', $postEndDate) === false)) {
     echo json_encode(['error' => 'It s not a real date']);
     die();
 }
 
-if (strtotime($postStartDate) > strtotime($postEndDate)) {
+if (strtotime($postStartDate) >= strtotime($postEndDate)) {
     echo json_encode(['error' => 'Start day must be inferior than end date']);
     die();
 }
