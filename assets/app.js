@@ -48,22 +48,24 @@ var distributerApp = {
             $("#app-error-container").empty().text(data['error']).show();
         }else{
             $("#app-error-container").empty().hide();
-            distributerApp.resultTemplate(data.success);
+            var tableTemplate = distributerApp.resultTemplate(data.success);
+            $('#app-data-result').find('tbody').empty().append(tableTemplate);
         }
         return;
     },
     resultTemplate : function(data){
         // $('#app-data-result')
-        var htmlTpl     = '<tr>';
+        var htmlTpl = '';
 
         console.log(data);
 
         $.each(data, function (i, item) {
-            console.log(item);
+            htmlTpl     += '<tr>';
+            htmlTpl     += '<th>' + item.date + '</th><td>' + item.amount + '</td>';
+            htmlTpl     += '</tr>';
         })
-
-        htmlTpl    += '<tr> <th>1</th> <td>Mark</td> </tr>';
-        htmlTpl    += '</tr>';
+        
+        return htmlTpl;
     }
 }
 

@@ -92,7 +92,7 @@ class DistributerClass {
 				}
 
             }else{
-            	$listDates[] =  [$start_date => 0];
+            	$listDates[] =  ['date' => $start_date , 'amount' => 0];
             }
 
             $start_date = date ("Y-m-d", strtotime("+1 day", strtotime($start_date)));
