@@ -19,24 +19,31 @@
                     <h3 class="text-center"> Application to distribute a total amount randomly by days</h3>
                 </div>
                 <div class="col-md-12">
+                    <div class="error-container">
+                        <div class="alert alert-danger hide-block" id="app-error-container" role="alert">
+                            A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
                     <form id="app-distributer-form" type='post' action="API.php">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="inputCity">Total Amount</label>
-                                <input type="text" class="form-control" id="total-amount" class="total-amount" name="total-amount" required>
+                                <label for="inputCity">Total amount</label>
+                                <input type="number" class="form-control" id="total-amount" class="total-amount" name="total-amount" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="inputCity">Base Line</label>
-                                <input type="text" class="form-control" id="base-line" class="base-line" name="base-line" required>
+                                <label for="inputCity">Base line</label>
+                                <input type="number" class="form-control" id="base-line" class="base-line" name="base-line" required>
                             </div>
                         </div>
                         <div class="form-row input-daterange">
                             <div class="form-group col-md-6">
-                                <label for="inputCity">Start Date</label>
+                                <label for="inputCity">Start date</label>
                                 <input type="text" class="form-control" id="start-date" class="start-date" value="2019-04-05" name="start-date">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="inputCity">End Date</label>
+                                <label for="inputCity">End date</label>
                                 <input type="text" class="form-control" id="end-date" class="end-date" name="end-date" value="2019-04-19">
                             </div>
                         </div>

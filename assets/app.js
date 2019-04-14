@@ -25,7 +25,9 @@ var distributerApp = {
                 url     : url,
                 data    : form.serialize(), // serializes the form's elements.
                 success: function (data) {
-                    console.log(data)
+                   // console.log(data);
+                    
+                    distributerApp.getFormData(data);
                 }
             });
         });
@@ -35,12 +37,22 @@ var distributerApp = {
         distributerApp.dom.dateInputs.find('input').each(function () {
             $(this).datepicker({
                 'clearDates': true,
-                'format': 'yyyy-mm-dd'
+                'format': 'yyyy-mm-dd',
+                'autoclose' : true
             });
         });
     },
-    sendForm : function(){
+    getFormData : function(data){
+        if (data.hasOwnProperty('error')) {
+            console.log(data['error']);
+            $("#app-error-container").empty().text(data['error']).show();
+            return;
+        }else{
+            $("#app-error-container").empty().hide();
 
+            console.log("Success");
+            console.log(data);
+        }
     }
 }
 

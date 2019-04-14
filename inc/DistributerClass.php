@@ -10,7 +10,6 @@ class DistributerClass {
 	private $amountPerDayList ;
 
 	function  __construct($start_date , $end_date , $total , $baseline){
-		echo "<pre>";
 		$this->totalAmount 	= $total;
 		$this->baseLine 	= $baseline;
 		$this->startDate	= $start_date;
@@ -103,6 +102,6 @@ class DistributerClass {
 	}
 
 	public function getJson(){
-		echo json_encode($this->amountPerDayList);
+		echo json_encode(['success' => $this->amountPerDayList]);
 	}
 }
