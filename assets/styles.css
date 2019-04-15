@@ -6,10 +6,21 @@
     margin-bottom: 30px;
 }
 
+.app-data-container {
+    padding-top: 30px;
+}
+
 .error-container {
     padding: 10px 0;
     min-height: 90px;
 }
+
 .hide-block {
     display: none;
+}
+
+@media (max-width : 720px) {
+    .error-container {
+        min-height: auto;
+    }
 }
