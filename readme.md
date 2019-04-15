@@ -4,4 +4,4 @@ Create an Application to distribute a total amount randomly by days (Only weekda
 
 ## Live Link
 
-Live version : [Back-End-Test-Link](https://mystagin.website/test2019/backend-test-1/) to install foobar.
+Live version : [Back-End-Test-Link](https://mystagin.website/test2019/backend-test-1/) .
