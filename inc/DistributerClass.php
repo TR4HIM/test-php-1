@@ -65,7 +65,6 @@ class DistributerClass {
 
 		//Calculate the min amount for each day based on Base Line and Weekdays
 		//Added a condition if the user entred Start Date == End date 
-		//NB :: I Return an error for user 
 
 		$minValue 			= ($weekDays > $counter) ? round($baseline  / ($weekDays - $counter) , 2) : 1;
 

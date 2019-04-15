@@ -39,6 +39,10 @@ var distributerApp = {
                     distributerApp.getFormData(data);
                     //Remove disabled on button
                     _this.text('Calculate').removeAttr('disabled');
+                },
+                error: function (request, status, error) {
+                    $("#app-error-container").empty().text("Server error occurred please try again").show();
+                    _this.text('Calculate').removeAttr('disabled');
                 }
             });
         });
