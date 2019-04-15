@@ -2,7 +2,10 @@
 include 'inc/DistributerClass.php';
 header('Content-Type: application/json');
 
-
+if(empty($_POST)){
+    echo json_encode(['error' => 'Access denied']);
+    die();
+}
 $postTotal      = $_POST['total-amount'];
 $postBaseLine   = $_POST['base-line'];
 $postStartDate  = $_POST['start-date'];
