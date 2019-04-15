@@ -39,7 +39,7 @@ if ((DateTime::createFromFormat('Y-m-d', $postStartDate) === false) || (DateTime
 }
 
 
-if (strtotime($postStartDate) >= strtotime($postEndDate)) {
+if (strtotime($postStartDate) > strtotime($postEndDate)) {
     echo json_encode(['error' => 'Start date should be before end date']);
     die();
 }
