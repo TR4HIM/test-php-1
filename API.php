@@ -26,6 +26,12 @@ if( $postTotal < $postBaseLine ) {
     die();
 } 
 
+//Check base line value
+if( $postBaseLine > 100 ||  $postBaseLine < 0) {
+    echo json_encode(['error' => 'Base line should be betewen 0 and 100']);
+    die();
+}
+
 //Check if dates are valide
 if ((DateTime::createFromFormat('Y-m-d', $postStartDate) === false) || (DateTime::createFromFormat('Y-m-d', $postEndDate) === false)) {
     echo json_encode(['error' => 'Please enter a valide date']);
