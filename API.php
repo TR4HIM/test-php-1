@@ -9,6 +9,7 @@ if(empty($_POST)){
     echo json_encode(['error' => 'Access denied']);
     die();
 }
+
 $postTotal      = $_POST['total-amount'];
 $postBaseLine   = $_POST['base-line'];
 $postStartDate  = $_POST['start-date'];
@@ -16,7 +17,7 @@ $postEndDate    = $_POST['end-date'];
 
 //Check if the fields contain only numbers
 if(!is_numeric($postTotal) || !is_numeric($postBaseLine)) {
-    echo json_encode(['error' => 'Please enter a valid number']);
+    echo json_encode(['error' => 'Please enter a valid numbers']);
     die();
 }
 
